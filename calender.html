@@ -92,22 +92,40 @@
             position: absolute;
             bottom: 5px;
             right: 5px;
-            background-color: #007bff;
+            background-color: #0073ff;
             color: white;
             border: none;
             border-radius: 4px;
-            padding: 5px;
+            padding: 2px 5px;
             cursor: pointer;
-            font-size: 0.8em;
+            font-size: 0.7em;
         }
 
         .add-workout:hover {
             background-color: #0056b3;
         }
+
+        .check-workout {
+            margin-top: 5px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .check-workout input {
+            cursor: pointer;
+        }
+
+        .check-workout label {
+            font-size: 0.8em;
+            color: #333;
+        }
     </style>
 </head>
 <body>
-    <div class="calendar-container" id="calendar"></div>
+    <div class="calendar-container" id="calendar">
+        
+    </div>
 
     <script>
         const months = [
@@ -127,7 +145,7 @@
 
                 const header = document.createElement("div");
                 header.classList.add("calendar-header");
-                header.innerHTML = `<h2>${month}</h2>`;
+                header.innerHTML = `<h2>${month}</h2>`;  <!-- Fixed here: use backticks for template literals -->
                 monthDiv.appendChild(header);
 
                 const grid = document.createElement("div");
@@ -141,7 +159,7 @@
 
                     const addButton = document.createElement("button");
                     addButton.classList.add("add-workout");
-                    addButton.textContent = "+ Workout";
+                    addButton.textContent = "+";
                     addButton.onclick = () => addWorkout(dayDiv);
 
                     dayDiv.appendChild(addButton);
@@ -160,6 +178,14 @@
                 workoutDiv.classList.add("workout");
                 workoutDiv.textContent = workoutType;
                 dayDiv.appendChild(workoutDiv);
+
+                const checkDiv = document.createElement("div");
+                checkDiv.classList.add("check-workout");
+                checkDiv.innerHTML = `
+                    <input type="checkbox" id="done-${workoutType}" />
+                    <label for="done-${workoutType}">Done</label>
+                `;
+                dayDiv.appendChild(checkDiv);
             }
         }
 
@@ -167,3 +193,4 @@
     </script>
 </body>
 </html>
+
