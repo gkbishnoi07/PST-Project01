@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Input Form</title>
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        
+        .form-container {
+            width: 300px;
+            margin: 50px auto;
+            border: 2px solid #333;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: #f9f9f9;
+            position: relative;
+        }
+
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            color: #fff;
+            padding: 8px 10px;
+            border-radius: 8px 8px 0 0;
+            margin: -20px -20px 10px -20px;
+        }
+
+        .header-title {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        
+        .profile-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            background-color: #ccc;
+            border: 2px solid #fff;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        
+        .form-group {
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        label {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        select, input {
+            padding: 5px;
+            width: 150px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        
+        select {
+            cursor: pointer;
+        }
+
+       
+        .submit-btn {
+            margin-top: 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: #555;
+        }
+        body {
+    font-family: Arial, sans-serif;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.form-container {
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header-title {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.profile-circle img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+.results-container {
+    margin-top: 20px;
+    background-color: #e9ecef;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.workout-details {
+    display: grid;
+    gap: 10px;
+}
+
+.workout-details p {
+    margin: 0;
+    padding: 10px;
+    background-color: white;
+    border-radius: 4px;
+}
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        
+        <div class="header">
+            <div class="header-title">Workout Planner</div>
+            <div class="profile-circle">
+                
+                <img src="https://www.shutterstock.com/image-vector/vector-flat-illustration-grayscale-avatar-600nw-2264922221.jpg" alt="Profile">
+            </div>
+        </div>
+
+        
+        <form id="workout-form">
+            <div class="form-group">
+                <label for="workout">Workout:</label>
+                <select id="workout" name="workout">
+                    
+                    <option value="chest">Chest</option>
+                    <option value="back">Back</option>
+                    <option value="arms">Arms</option>
+                    <option value="shoulders">Shoulders</option>
+                    <option value="legs">Legs</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="reps">Reps:</label>
+                <input type="number" id="reps" name="reps" min="1" placeholder="prefered:10;">
+            </div>
+
+            <div class="form-group">
+                <label for="sets">Sets:</label>
+                <input type="number" id="sets" name="sets" min="1" placeholder="prefered:3;">
+            </div>
+
+            <div class="form-group">
+                <label for="duration">Duration:</label>
+                <select id="duration" name="duration">
+                    <option value="30s">30 Seconds</option>
+                    <option value="1min">1 Minute</option>
+                    <option value="2min">2 Minutes</option>
+                </select>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        
+        const form = document.getElementById('workout-form');
+        
+        
+        const resultsContainer = document.createElement('div');
+        resultsContainer.classList.add('results-container');
+        form.parentNode.insertBefore(resultsContainer, form.nextSibling);
+    
+        
+        function displayWorkoutDetails(workoutData) {
+            resultsContainer.innerHTML = `
+                <h2>Your Workout Plan</h2>
+                <div class="workout-details">
+                    <p><strong>Muscle Group:</strong> ${workoutData.workout.charAt(0).toUpperCase() + workoutData.workout.slice(1)}</p>
+                    <p><strong>Reps:</strong> ${workoutData.reps}</p>
+                    <p><strong>Sets:</strong> ${workoutData.sets}</p>
+                    <p><strong>Exercise Duration:</strong> ${workoutData.duration.replace('s', ' Seconds').replace('min', ' Minute')}</p>
+                </div>
+            `;
+        }
+    
+        
+        const savedWorkout = sessionStorage.getItem('workoutPlan');
+        if (savedWorkout) {
+            const workoutData = JSON.parse(savedWorkout);
+            
+          
+            document.getElementById('workout').value = workoutData.workout;
+            document.getElementById('reps').value = workoutData.reps;
+            document.getElementById('sets').value = workoutData.sets;
+            document.getElementById('duration').value = workoutData.duration;
+            
+            
+            displayWorkoutDetails(workoutData);
+        }
+    
+        
+        form.addEventListener('submit', function(event) {
+            
+            event.preventDefault();
+            
+           
+            const workoutData = {
+                workout: document.getElementById('workout').value,
+                reps: document.getElementById('reps').value,
+                sets: document.getElementById('sets').value,
+                duration: document.getElementById('duration').value
+            };
+            
+            
+            sessionStorage.setItem('workoutPlan', JSON.stringify(workoutData));
+            
+            
+            displayWorkoutDetails(workoutData);
+        });
+    
+        
+        const clearButton = document.createElement('button');
+        clearButton.textContent = 'Clear Saved Workout';
+        clearButton.classList.add('clear-btn');
+        clearButton.addEventListener('click', function() {
+            
+            sessionStorage.removeItem('workoutPlan');
+            
+            
+            form.reset();
+            
+            
+            resultsContainer.innerHTML = '';
+        });
+        form.appendChild(clearButton);
+    });
+</script>
+    
+</body>
+</html>
