@@ -200,10 +200,14 @@
             <p>Tailored exercise plans for your fitness goals</p>
             </button>
         </div>
+        
         <div class="feature">
+            <button class="feature" onclick="redirectToprogress()" style="border: none; background: none; padding: 0; cursor: pointer;">
             <h2>Progress Tracking</h2>
             <p>Monitor your fitness journey in real-time</p>
+            </button>
         </div>
+        
         <button class="feature" onclick="redirectTorecommandtion()" style="border: none; background: none; padding: 0; cursor: pointer;">
             <h2>recommandtion</h2>
             <p>Increase the intensity of the workout</p>
@@ -214,6 +218,11 @@
         function redirectTorecommandtion() {
             window.location.href = "recommandtion.html";
         }
+
+        function redirectToprogress() {
+            window.location.href = "progress.html";
+        }
+        
         function redirectTocustom() {
             window.location.href = "custom.html";
         }
